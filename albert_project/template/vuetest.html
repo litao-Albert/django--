@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/vue.min.js"></script>
+</head>
+<body>
+<h1>
+    这是我们vue.js得测试页面
+</h1>
+{#vue绑定和django得jinja2模板系统使用得标签是一样得，为了区分我们需要使用verbatim将vue得标签包围起来#}
+ {% verbatim myblock %}
+    <div id = "vueExample">
+        <p> 基本的文本绑定 </p>
+        <p v-for="p in age"> hello world I am {{ p }}</p>
+    </div>
+    {% endverbatim myblock %}
+<script>
+   new Vue( //实例化vue对象
+             {
+                 el: "#vueExample", //绑定的元素是一个id为vueExample的div
+                 data:{
+                     name: "twisted, I am so cool",
+                     age:["12","21","34"]
+                 }
+
+
+             }
+
+        )
+</script>
+
+</body>
+</html>
